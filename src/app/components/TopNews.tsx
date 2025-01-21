@@ -30,9 +30,7 @@ const TopNews = () => {
         }
 
         const data = await response.json();
-        // 仮で5つ取得
-        const topStories = data.slice(0, 5);
-        console.log(topStories);
+        const topStories = data.slice(0, 18);
 
         // 取得したidを元に各idの詳細取得
         const topStoriesList = [];
@@ -59,16 +57,19 @@ const TopNews = () => {
       {stories === null ? (
         <p>Loading...</p>
       ) : (
-        <ul>
-          {stories.map((story) => (
-            <li key={story.id} className="text-black">
-              <p>{story.type}</p>
-              <p>{story.title}</p>
-              <p>by {story.by}</p>
-              <p>{story.time}</p>
-            </li>
-          ))}
-        </ul>
+        <div>
+          <h1 className="text-black">{stories[0].type}</h1>
+          <ul>
+            {stories.slice(1, 18).map((story) => (
+              <li key={story.id} className="text-black">
+                <p>{story.type}</p>
+                <p>{story.title}</p>
+                <p>by {story.by}</p>
+                <p>{story.time}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );
