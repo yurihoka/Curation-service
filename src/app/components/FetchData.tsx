@@ -67,19 +67,39 @@ export default function FetchData({ path, title }: FetchDataProps) {
         <p>Loading...</p>
       ) : (
         <div className="mb-10 text-black">
-          <div className="grid grid-cols-4 gap-4">
-            {stories.map((story) => (
-              <div
-                key={story.id}
-                className="border-b border-dotted border-black p-4"
-              >
-                <h3 className="text-md font-semibold mb-2">{story.type}</h3>
-                <p className="text-sm">{story.title}</p>
-                <p className="text-sm text-gray-400">by {story.by}</p>
-                <p className="text-sm text-gray-400">{story.time}</p>
+          {title === "The Latest" ? (
+            // titleが "Latest" の場合
+            <div className="mb-10 text-black">
+              <div className="flex flex-col gap-4">
+                {stories.map((story) => (
+                  <div
+                    key={story.id}
+                    className="border-b border-dotted border-black p-4"
+                  >
+                    <h3 className="text-md font-semibold mb-2">{story.type}</h3>
+                    <p className="text-sm">{story.title}</p>
+                    <p className="text-sm text-gray-400">by {story.by}</p>
+                    <p className="text-sm text-gray-400">{story.time}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ) : (
+            // titleが "Latest" 以外の場合
+            <div className="grid grid-cols-4 gap-4">
+              {stories.map((story) => (
+                <div
+                  key={story.id}
+                  className="border-b border-dotted border-black p-4"
+                >
+                  <h3 className="text-md font-semibold mb-2">{story.type}</h3>
+                  <p className="text-sm">{story.title}</p>
+                  <p className="text-sm text-gray-400">by {story.by}</p>
+                  <p className="text-sm text-gray-400">{story.time}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>

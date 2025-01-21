@@ -7,6 +7,7 @@ export default function TopNews() {
     <>
       <FetchData path="topstories.json?print=pretty" title="TOP" />
       <FetchData path="topstories.json?print=pretty" title="best" />
+      <FetchData path="askstories.json?print=pretty" title="The Latest" />
     </>
   );
 }
