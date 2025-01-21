@@ -11,9 +11,21 @@ export default function Home() {
       <main>
         <section>
           <TopNews />
-          <FetchData path="askstories.json?print=pretty" title="Ask HN" />
-          <FetchData path="showstories.json?print=pretty" title="Show HN" />
-          <FetchData path="jobstories.json?print=pretty" title="Jobs HN" />
+          <FetchData
+            path="askstories.json?print=pretty"
+            title="Ask HN"
+            limit={2}
+          />
+          <FetchData
+            path="showstories.json?print=pretty"
+            title="Show HN"
+            limit={2}
+          />
+          <FetchData
+            path="jobstories.json?print=pretty"
+            title="Jobs HN"
+            limit={2}
+          />
         </section>
       </main>
     </div>
