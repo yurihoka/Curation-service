@@ -54,7 +54,7 @@ export default function FetchData({ baseUrl, path, title }: FetchDataProps) {
         setStories(storiesDataList);
         console.log(storiesDataList);
       } catch (error) {
-        console.error("Error fetching weather data:", error);
+        console.error("Error fetching news data:", error);
       }
     }
     fetchStoriesApi();
@@ -66,16 +66,21 @@ export default function FetchData({ baseUrl, path, title }: FetchDataProps) {
       {stories === null ? (
         <p>Loading...</p>
       ) : (
-        <ul>
-          {stories.map((story) => (
-            <li key={story.id} className="text-black">
-              <p>{story.type}</p>
-              <p>{story.title}</p>
-              <p>by {story.by}</p>
-              <p>{story.time}</p>
-            </li>
-          ))}
-        </ul>
+        <div className="mb-10 text-black">
+          <div className="grid grid-cols-4 gap-4">
+            {stories.map((story) => (
+              <div
+                key={story.id}
+                className="border-b border-dotted border-black p-4"
+              >
+                <h3 className="text-md font-semibold mb-2">{story.type}</h3>
+                <p className="text-sm">{story.title}</p>
+                <p className="text-sm text-gray-400">by {story.by}</p>
+                <p className="text-sm text-gray-400">{story.time}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       )}
     </div>
   );
