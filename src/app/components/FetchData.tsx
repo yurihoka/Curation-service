@@ -14,54 +14,60 @@ type StoriesDataProps = {
   url: string;
 };
 
-export default function AskHn() {
-  const [askStories, setAskStories] = useState<StoriesDataProps[] | null>(null);
+type FetchDataProps = {
+  baseUrl: string;
+  path: string;
+  title: string;
+};
+
+export default function FetchData({ baseUrl, path, title }: FetchDataProps) {
+  const [stories, setStories] = useState<StoriesDataProps[] | null>(null);
+
+  const url = `${baseUrl}/${path}`;
 
   useEffect(() => {
-    async function fetchAskStoriesApi() {
+    async function fetchStoriesApi() {
       try {
         // id取得
-        const response = await fetch(
-          "https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty"
-        );
+        const response = await fetch(url);
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data = await response.json();
-        const askData = data.slice(0, 4);
-        console.log(askData);
+        const data = (await response.json()).slice(0, 4);
+
+        console.log(data);
 
         // 取得したidを元に各idの詳細取得
-        const askStoriesList = [];
+        const storiesData = [];
 
-        for (let i = 0; i < askData.length; i++) {
-          askStoriesList.push(
+        for (let i = 0; i < data.length; i++) {
+          storiesData.push(
             fetch(
-              `https://hacker-news.firebaseio.com/v0/item/${askData[i]}.json?print=pretty`
+              `https://hacker-news.firebaseio.com/v0/item/${data[i]}.json?print=pretty`
             ).then((res) => res.json())
           );
         }
-        const fetchData = await Promise.all(askStoriesList);
+        const storiesDataList = await Promise.all(storiesData);
 
-        setAskStories(fetchData);
-        console.log(fetchData);
+        setStories(storiesDataList);
+        console.log(storiesDataList);
       } catch (error) {
         console.error("Error fetching weather data:", error);
       }
     }
-    fetchAskStoriesApi();
+    fetchStoriesApi();
   }, []);
 
   return (
     <div>
-      <h1 className="text-black">Ask HN</h1>
-      {askStories === null ? (
+      <h1 className="text-black font-bold">{title}</h1>
+      {stories === null ? (
         <p>Loading...</p>
       ) : (
         <ul>
-          {askStories.map((story) => (
+          {stories.map((story) => (
             <li key={story.id} className="text-black">
               <p>{story.type}</p>
               <p>{story.title}</p>
