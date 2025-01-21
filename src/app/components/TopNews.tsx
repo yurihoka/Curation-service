@@ -15,19 +15,7 @@ type StoriesDataProps = {
 };
 
 const TopNews = () => {
-  const [stories, setStories] = useState<StoriesDataProps[]>([
-    {
-      by: "",
-      descendants: 0,
-      id: 0,
-      kids: [],
-      score: 0,
-      time: 0,
-      title: "",
-      type: "",
-      url: "",
-    },
-  ]);
+  const [stories, setStories] = useState<StoriesDataProps[] | null>(null);
 
   useEffect(() => {
     async function fetchTopStoriesApi() {
@@ -67,16 +55,22 @@ const TopNews = () => {
   }, []);
 
   return (
-    <>
-      {stories.map((story, index) => (
-        <div key={index}>
-          <h2 className="text-black">{story.type}</h2>
-          <p className="text-black">{story.title}</p>
-          <p className="text-black">by {story.by}</p>
-          <p className="text-black">{story.time}</p>
-        </div>
-      ))}
-    </>
+    <div>
+      {stories === null ? (
+        <p>Loading...</p>
+      ) : (
+        <ul>
+          {stories.map((story) => (
+            <li key={story.id} className="text-black">
+              <p>{story.type}</p>
+              <p>{story.title}</p>
+              <p>by {story.by}</p>
+              <p>{story.time}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
 
