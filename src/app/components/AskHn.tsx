@@ -37,15 +37,16 @@ export default function AskHn() {
         const askStoriesList = [];
 
         for (let i = 0; i < askData.length; i++) {
-          const response = await fetch(
-            `https://hacker-news.firebaseio.com/v0/item/${askData[i]}.json?print=pretty`
+          askStoriesList.push(
+            fetch(
+              `https://hacker-news.firebaseio.com/v0/item/${askData[i]}.json?print=pretty`
+            ).then((res) => res.json())
           );
-
-          askStoriesList.push(await response.json());
-          console.log(askStoriesList);
-
-          setAskStories(askStoriesList);
         }
+        const fetchData = await Promise.all(askStoriesList);
+
+        setAskStories(fetchData);
+        console.log(fetchData);
       } catch (error) {
         console.error("Error fetching weather data:", error);
       }
