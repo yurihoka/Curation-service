@@ -1,3 +1,4 @@
+import AskHn from "./components/AskHn";
 import Header from "./components/layouts/Header";
 import NavigationBar from "./components/layouts/NavigationBar";
 
@@ -7,6 +8,7 @@ export default function Home() {
       <main>
         <Header />
         <NavigationBar />
+        <AskHn />
       </main>
     </div>
   );
