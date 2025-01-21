@@ -8,7 +8,7 @@ export default function Home() {
       <main>
         <Header />
         <NavigationBar />
-        <AskHn />
+        {/* <AskHn /> */}
       </main>
     </div>
   );
