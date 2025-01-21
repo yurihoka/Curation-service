@@ -1,30 +1,20 @@
 import FetchData from "./components/FetchData";
 import Header from "./components/layouts/Header";
 import NavigationBar from "./components/layouts/NavigationBar";
+import TopNews from "./components/TopNews";
 
 export default function Home() {
-  const baseUrl = "https://hacker-news.firebaseio.com/v0";
-
   return (
     <div>
+      <Header />
+      <NavigationBar />
       <main>
-        <Header />
-        <NavigationBar />
-        <FetchData
-          baseUrl={baseUrl}
-          path="askstories.json?print=pretty"
-          title="Ask HN"
-        />
-        <FetchData
-          baseUrl={baseUrl}
-          path="showstories.json?print=pretty"
-          title="Show HN"
-        />
-        <FetchData
-          baseUrl={baseUrl}
-          path="jobstories.json?print=pretty"
-          title="Jobs HN"
-        />
+        <section>
+          <TopNews />
+          <FetchData path="askstories.json?print=pretty" title="Ask HN" />
+          <FetchData path="showstories.json?print=pretty" title="Show HN" />
+          <FetchData path="jobstories.json?print=pretty" title="Jobs HN" />
+        </section>
       </main>
     </div>
   );

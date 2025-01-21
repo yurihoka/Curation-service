@@ -15,13 +15,13 @@ type StoriesDataProps = {
 };
 
 type FetchDataProps = {
-  baseUrl: string;
   path: string;
   title: string;
 };
 
-export default function FetchData({ baseUrl, path, title }: FetchDataProps) {
+export default function FetchData({ path, title }: FetchDataProps) {
   const [stories, setStories] = useState<StoriesDataProps[] | null>(null);
+  const baseUrl = "https://hacker-news.firebaseio.com/v0";
 
   const url = `${baseUrl}/${path}`;
 
