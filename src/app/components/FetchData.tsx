@@ -17,10 +17,16 @@ type StoriesDataProps = {
 type FetchDataProps = {
   path: string;
   title: string;
-  limit: number;
+  startIndex: number;
+  endIndex: number;
 };
 
-export default function FetchData({ path, title, limit }: FetchDataProps) {
+export default function FetchData({
+  path,
+  title,
+  startIndex,
+  endIndex,
+}: FetchDataProps) {
   const [stories, setStories] = useState<StoriesDataProps[] | null>(null);
   const baseUrl = "https://hacker-news.firebaseio.com/v0";
 
@@ -36,7 +42,7 @@ export default function FetchData({ path, title, limit }: FetchDataProps) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data = (await response.json()).slice(0, limit);
+        const data = (await response.json()).slice(startIndex, endIndex);
 
         console.log(data);
 
