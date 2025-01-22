@@ -20,15 +20,17 @@ export default function TopNews() {
           title=""
           startIndex={1}
           endIndex={19}
+          category="best"
         />
         <FetchData
           path="newstories.json?print=pretty"
           title="The Latest"
           startIndex={0}
           endIndex={5}
+          category="The Latest"
         />
       </div>
-        <NewsListNavigationLink navigationLink={"/moretophn"} title="Top HN" />
+      <NewsListNavigationLink navigationLink={"/moretophn"} title="Top HN" />
     </div>
   );
 }

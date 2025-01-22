@@ -19,6 +19,7 @@ type FetchDataProps = {
   title: string;
   startIndex: number;
   endIndex: number;
+  category?: string;
 };
 
 export default function FetchData({
@@ -26,6 +27,7 @@ export default function FetchData({
   title,
   startIndex,
   endIndex,
+  category,
 }: FetchDataProps) {
   const [stories, setStories] = useState<StoriesDataProps[] | null>(null);
   const baseUrl = "https://hacker-news.firebaseio.com/v0";
@@ -83,7 +85,7 @@ export default function FetchData({
         <p>Loading...</p>
       ) : (
         <div className=" text-black">
-          {title === "The Latest" ? (
+          {category === "The Latest" ? (
             // titleが "The Latest" の場合
             <div>
               <h1 className="text-black font-bold border-y-2 border-black py-2">
@@ -104,8 +106,29 @@ export default function FetchData({
                 ))}
               </div>
             </div>
+          ) : category === "best" ? (
+            // titleが "best" の場合
+            <div>
+              <h1 className="text-black font-bold my-4">{title}</h1>
+              <div className="flex flex-wrap -mx-4">
+                {stories.map((story) => (
+                  <div
+                    key={story.id}
+                    className={`${
+                      stories.length === 1 ? "w-full" : "w-1/3"
+                    } px-4 mb-4 border-b border-dotted border-black pb-4`}
+                  >
+                    <p className="text-sm">{story.type}</p>
+                    <p className="text-md font-semibold">{story.title}</p>
+                    <p className="text-sm text-gray-400">
+                      by {story.by} {formatTimeAgo(story.time)}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           ) : (
-            // titleが "The Latest" 以外の場合
+            // titleが "The Latest" でも "best" でもない場合
             <div>
               <h1 className="text-black font-bold my-4">{title}</h1>
               <div className="flex flex-wrap -mx-4">
