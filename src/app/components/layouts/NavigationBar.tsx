@@ -30,7 +30,7 @@ const NavigationBar = () => {
             <ul className="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="text-black hover:bg-black hover:text-white"
                   aria-current="page"
                 >
@@ -39,7 +39,7 @@ const NavigationBar = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/ask"
                   className="text-black hover:bg-black hover:text-white"
                 >
                   Ask
@@ -47,7 +47,7 @@ const NavigationBar = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/show"
                   className="text-black hover:bg-black hover:text-white"
                 >
                   Show
@@ -55,7 +55,7 @@ const NavigationBar = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/jobs"
                   className="text-black hover:bg-black hover:text-white"
                 >
                   Jobs
