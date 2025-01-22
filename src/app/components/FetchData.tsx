@@ -99,12 +99,13 @@ export default function FetchData({
                   key={story.id}
                   className={`${
                     stories.length === 1 ? "w-full" : "w-1/4"
-                  } px-4 mb-4 border-b border-dotted border-black`}
+                  } px-4 mb-4 border-b border-dotted border-black pb-4`}
                 >
-                  <h3 className="text-md font-semibold mb-2">{story.type}</h3>
-                  <p className="text-sm">{story.title}</p>
-                  <p className="text-sm text-gray-400">by {story.by}</p>
-                  <p className="text-sm text-gray-400">{story.time}</p>
+                  <p className="text-sm">{story.type}</p>
+                  <p className="text-md font-semibold">{story.title}</p>
+                  <p className="text-sm text-gray-400">
+                    by {story.by} {story.time}
+                  </p>
                 </div>
               ))}
             </div>
