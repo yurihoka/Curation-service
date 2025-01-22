@@ -68,15 +68,17 @@ export default function FetchData({
   }, []);
 
   return (
-    <div>
-      <h1 className="text-black font-bold">{title}</h1>
+    <div className="max-w-screen-xl mx-auto p-4">
       {stories === null ? (
         <p>Loading...</p>
       ) : (
         <div className="mb-10 text-black">
           {title === "The Latest" ? (
-            // titleが "Latest" の場合
-            <div className="mb-10 text-black">
+            // titleが "The Latest" の場合
+            <div>
+              <h1 className="text-black font-bold border-y-2 border-black py-2">
+                {title}
+              </h1>
               <div className="flex flex-col gap-4">
                 {stories.map((story) => (
                   <div
@@ -92,22 +94,25 @@ export default function FetchData({
               </div>
             </div>
           ) : (
-            // titleが "Latest" 以外の場合
-            <div className="flex flex-wrap -mx-4">
-              {stories.map((story) => (
-                <div
-                  key={story.id}
-                  className={`${
-                    stories.length === 1 ? "w-full" : "w-1/4"
-                  } px-4 mb-4 border-b border-dotted border-black pb-4`}
-                >
-                  <p className="text-sm">{story.type}</p>
-                  <p className="text-md font-semibold">{story.title}</p>
-                  <p className="text-sm text-gray-400">
-                    by {story.by} {story.time}
-                  </p>
-                </div>
-              ))}
+            // titleが "The Latest" 以外の場合
+            <div>
+              <h1 className="text-black font-bold">{title}</h1>
+              <div className="flex flex-wrap -mx-4">
+                {stories.map((story) => (
+                  <div
+                    key={story.id}
+                    className={`${
+                      stories.length === 1 ? "w-full" : "w-1/4"
+                    } px-4 mb-4 border-b border-dotted border-black pb-4`}
+                  >
+                    <p className="text-sm">{story.type}</p>
+                    <p className="text-md font-semibold">{story.title}</p>
+                    <p className="text-sm text-gray-400">
+                      by {story.by} {story.time}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </div>
