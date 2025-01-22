@@ -80,22 +80,22 @@ export default function FetchData({
   }
 
   return (
-    <div className="mx-auto p-4">
+    <>
       {stories === null ? (
         <p>Loading...</p>
       ) : (
-        <div className=" text-black">
+        <>
           {category === "The Latest" ? (
             // titleが "The Latest" の場合
             <div>
-              <h1 className="text-black font-bold border-y-2 border-black py-2">
+              <h1 className="text-black font-bold border-y border-black py-2">
                 {title}
               </h1>
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col">
                 {stories.map((story) => (
                   <div
                     key={story.id}
-                    className="border-b border-dotted border-black p-4"
+                    className="border-b border-dotted border-black py-4"
                   >
                     <p className="text-sm">{story.type}</p>
                     <p className="text-md font-semibold">{story.title}</p>
@@ -110,13 +110,11 @@ export default function FetchData({
             // titleが "best" の場合
             <div>
               <h1 className="text-black font-bold my-4">{title}</h1>
-              <div className="flex flex-wrap -mx-4">
+              <div className="flex flex-wrap gap-4">
                 {stories.map((story) => (
                   <div
                     key={story.id}
-                    className={`${
-                      stories.length === 1 ? "w-full" : "w-1/3"
-                    } px-4 mb-4 border-b border-dotted border-black pb-4`}
+                    className="flex-grow basis-[calc(33.333%-1rem)] pb-4 mb-4 border-b border-dotted border-black"
                   >
                     <p className="text-sm">{story.type}</p>
                     <p className="text-md font-semibold">{story.title}</p>
@@ -131,13 +129,11 @@ export default function FetchData({
             // titleが "The Latest" でも "best" でもない場合
             <div>
               <h1 className="text-black font-bold my-4">{title}</h1>
-              <div className="flex flex-wrap -mx-4">
+              <div className="flex flex-wrap gap-4">
                 {stories.map((story) => (
                   <div
                     key={story.id}
-                    className={`${
-                      stories.length === 1 ? "w-full" : "w-1/4"
-                    } px-4 mb-4 border-b border-dotted border-black pb-4`}
+                    className="flex-grow basis-[calc(25%-1rem)] pb-4 mb-4 border-b border-dotted border-black"
                   >
                     <p className="text-sm">{story.type}</p>
                     <p className="text-md font-semibold">{story.title}</p>
@@ -149,8 +145,8 @@ export default function FetchData({
               </div>
             </div>
           )}
-        </div>
+        </>
       )}
-    </div>
+    </>
   );
 }
