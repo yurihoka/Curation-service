@@ -17,10 +17,16 @@ type StoriesDataProps = {
 type FetchDataProps = {
   path: string;
   title: string;
-  limit: number;
+  startIndex: number;
+  endIndex: number;
 };
 
-export default function FetchData({ path, title, limit }: FetchDataProps) {
+export default function FetchData({
+  path,
+  title,
+  startIndex,
+  endIndex,
+}: FetchDataProps) {
   const [stories, setStories] = useState<StoriesDataProps[] | null>(null);
   const baseUrl = "https://hacker-news.firebaseio.com/v0";
 
@@ -36,7 +42,7 @@ export default function FetchData({ path, title, limit }: FetchDataProps) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data = (await response.json()).slice(0, limit);
+        const data = (await response.json()).slice(startIndex, endIndex);
 
         console.log(data);
 
@@ -87,16 +93,19 @@ export default function FetchData({ path, title, limit }: FetchDataProps) {
             </div>
           ) : (
             // titleが "Latest" 以外の場合
-            <div className="grid grid-cols-4 gap-4">
+            <div className="flex flex-wrap -mx-4">
               {stories.map((story) => (
                 <div
                   key={story.id}
-                  className="border-b border-dotted border-black p-4"
+                  className={`${
+                    stories.length === 1 ? "w-full" : "w-1/4"
+                  } px-4 mb-4 border-b border-dotted border-black pb-4`}
                 >
-                  <h3 className="text-md font-semibold mb-2">{story.type}</h3>
-                  <p className="text-sm">{story.title}</p>
-                  <p className="text-sm text-gray-400">by {story.by}</p>
-                  <p className="text-sm text-gray-400">{story.time}</p>
+                  <p className="text-sm">{story.type}</p>
+                  <p className="text-md font-semibold">{story.title}</p>
+                  <p className="text-sm text-gray-400">
+                    by {story.by} {story.time}
+                  </p>
                 </div>
               ))}
             </div>
