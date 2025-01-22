@@ -29,7 +29,6 @@ export default function FetchData({
 }: FetchDataProps) {
   const [stories, setStories] = useState<StoriesDataProps[] | null>(null);
   const baseUrl = "https://hacker-news.firebaseio.com/v0";
-
   const url = `${baseUrl}/${path}`;
 
   useEffect(() => {
@@ -43,8 +42,6 @@ export default function FetchData({
         }
 
         const data = (await response.json()).slice(startIndex, endIndex);
-
-        console.log(data);
 
         // 取得したidを元に各idの詳細取得
         const storiesData = [];
@@ -67,6 +64,19 @@ export default function FetchData({
     fetchStoriesApi();
   }, []);
 
+  function formatTimeAgo(timestamp: number) {
+    const now = Date.now();
+    const diff = now - timestamp * 1000;
+    const minutes = Math.floor(diff / (1000 * 60));
+    const hours = Math.floor(minutes / 60);
+
+    if (hours > 0) {
+      return `${hours} hour${hours > 1 ? "s" : ""} ago`;
+    } else {
+      return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
+    }
+  }
+
   return (
     <div className="max-w-screen-xl mx-auto p-4">
       {stories === null ? (
@@ -87,8 +97,9 @@ export default function FetchData({
                   >
                     <h3 className="text-md font-semibold mb-2">{story.type}</h3>
                     <p className="text-sm">{story.title}</p>
-                    <p className="text-sm text-gray-400">by {story.by}</p>
-                    <p className="text-sm text-gray-400">{story.time}</p>
+                    <p className="text-sm text-gray-400">
+                      by {story.by} {formatTimeAgo(story.time)}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -108,7 +119,7 @@ export default function FetchData({
                     <p className="text-sm">{story.type}</p>
                     <p className="text-md font-semibold">{story.title}</p>
                     <p className="text-sm text-gray-400">
-                      by {story.by} {story.time}
+                      by {story.by} {formatTimeAgo(story.time)}
                     </p>
                   </div>
                 ))}
