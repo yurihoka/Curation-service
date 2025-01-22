@@ -15,7 +15,9 @@ export default function SharedPage({
 }: FetchDataProps) {
   return (
     <div>
-      <FetchData path={path} title={title} startIndex={0} endIndex={1} />
+      <div className="w-full text-4xl">
+        <FetchData path={path} title={title} startIndex={0} endIndex={1} />
+      </div>
       <FetchData
         path={path}
         title={""}

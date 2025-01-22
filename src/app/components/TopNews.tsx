@@ -4,8 +4,8 @@ import FetchData from "./FetchData";
 
 export default function TopNews() {
   return (
-    <div className="space-y-8">
-      <div className="w-full">
+    <div>
+      <div className="w-full text-4xl">
         <FetchData
           path="topstories.json?print=pretty"
           title=""
@@ -13,7 +13,7 @@ export default function TopNews() {
           endIndex={1}
         />
       </div>
-      <div className="flex justify-between space-x-8 max-w-screen-xl mx-auto p-4">
+      <div className="flex justify-between max-w-screen-xl mx-auto">
         <FetchData
           path="beststories.json?print=pretty"
           title=""
