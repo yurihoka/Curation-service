@@ -87,11 +87,13 @@ export default function FetchData({ path, title, limit }: FetchDataProps) {
             </div>
           ) : (
             // titleが "Latest" 以外の場合
-            <div className="grid grid-cols-4 gap-4">
+            <div className="flex flex-wrap -mx-4">
               {stories.map((story) => (
                 <div
                   key={story.id}
-                  className="border-b border-dotted border-black p-4"
+                  className={`${
+                    stories.length === 1 ? "w-full" : "w-1/4"
+                  } px-4 mb-4 border-b border-dotted border-black`}
                 >
                   <h3 className="text-md font-semibold mb-2">{story.type}</h3>
                   <p className="text-sm">{story.title}</p>
