@@ -6,22 +6,25 @@ export default function Home() {
     <div>
       <main>
         <section>
-          {/* <TopNews /> */}
-          {/* <FetchData
+          <TopNews />
+          <FetchData
             path="askstories.json?print=pretty"
             title="Ask HN"
-            limit={2}
+            startIndex={0}
+            endIndex={4}
           />
           <FetchData
             path="showstories.json?print=pretty"
             title="Show HN"
-            limit={2}
+            startIndex={0}
+            endIndex={4}
           />
           <FetchData
             path="jobstories.json?print=pretty"
             title="Jobs HN"
-            limit={2}
-          /> */}
+            startIndex={0}
+            endIndex={4}
+          />
         </section>
       </main>
     </div>

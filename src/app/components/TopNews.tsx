@@ -4,10 +4,29 @@ import FetchData from "./FetchData";
 
 export default function TopNews() {
   return (
-    <>
-      <FetchData path="topstories.json?print=pretty" title="TOP" startIndex={0} endIndex={2} />
-      <FetchData path="topstories.json?print=pretty" title="best" startIndex={0} endIndex={2}/>
-      <FetchData path="askstories.json?print=pretty" title="The Latest" startIndex={0} endIndex={2}/>
-    </>
+    <div className="space-y-8">
+      <div className="w-full">
+        <FetchData
+          path="topstories.json?print=pretty"
+          title=""
+          startIndex={0}
+          endIndex={1}
+        />
+      </div>
+      <div className="flex justify-between space-x-8 max-w-screen-xl mx-auto p-4">
+        <FetchData
+          path="beststories.json?print=pretty"
+          title=""
+          startIndex={1}
+          endIndex={19}
+        />
+        <FetchData
+          path="newstories.json?print=pretty"
+          title="The Latest"
+          startIndex={0}
+          endIndex={5}
+        />
+      </div>
+    </div>
   );
 }
