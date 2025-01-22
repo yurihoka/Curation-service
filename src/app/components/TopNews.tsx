@@ -1,6 +1,7 @@
 "use client";
 
 import FetchData from "./FetchData";
+import NewsListNavigationLink from "./layouts/NewsListNavigationLink";
 
 export default function TopNews() {
   return (
@@ -27,6 +28,7 @@ export default function TopNews() {
           endIndex={5}
         />
       </div>
+        <NewsListNavigationLink navigationLink={"/moretophn"} title="Top HN" />
     </div>
   );
 }

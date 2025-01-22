@@ -1,18 +1,18 @@
 import NewsListNavigationLink from "../components/layouts/NewsListNavigationLink";
 import SharedPage from "../components/SharedPage";
 
-export default function Jobs() {
+export default function MoreShowHn() {
   return (
     <div>
       <SharedPage
-        path={"jobstories.json?print=pretty"}
-        title={"Jobs HN"}
+        path={"showstories.json?print=pretty"}
+        title={"Show HN"}
         startIndex={1}
-        endIndex={17}
+        endIndex={33}
       />
       <NewsListNavigationLink
-        navigationLink={"/morejobshn"}
-        title={"Jobs HN"}
+        navigationLink={"/moreshowhn"}
+        title={"Show HN"}
       />
     </div>
   );
