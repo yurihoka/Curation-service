@@ -5,7 +5,7 @@ import TopNews from "./components/TopNews";
 export default function Home() {
   return (
     <div>
-      <main className="pb-24">
+      <main>
         <section>
           <TopNews />
           <FetchData

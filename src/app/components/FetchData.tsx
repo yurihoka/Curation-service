@@ -78,7 +78,7 @@ export default function FetchData({
   }
 
   return (
-    <div className="max-w-screen-xl mx-auto p-4">
+    <div className="mx-auto p-4">
       {stories === null ? (
         <p>Loading...</p>
       ) : (
