@@ -14,23 +14,34 @@ export default function TopNews() {
           endIndex={1}
         />
       </div>
-      <div className="flex justify-between max-w-screen-xl mx-auto">
-        <FetchData
-          path="beststories.json?print=pretty"
-          title=""
-          startIndex={1}
-          endIndex={19}
-          category="best"
-        />
-        <FetchData
-          path="newstories.json?print=pretty"
-          title="The Latest"
-          startIndex={0}
-          endIndex={5}
-          category="The Latest"
-        />
+      <div className="flex justify-between">
+        <div className="w-5/6">
+          <FetchData
+            path="beststories.json?print=pretty"
+            title=""
+            startIndex={1}
+            endIndex={19}
+            category="best"
+          />
+          <NewsListNavigationLink
+            navigationLink={"/moretophn"}
+            title="Top HN"
+          />
+        </div>
+        <div className="pl-10 pt-5">
+          <FetchData
+            path="newstories.json?print=pretty"
+            title="The Latest"
+            startIndex={0}
+            endIndex={5}
+            category="The Latest"
+          />
+          <NewsListNavigationLink
+            navigationLink={"/morelatest"}
+            title="Latest"
+          />
+        </div>
       </div>
-      <NewsListNavigationLink navigationLink={"/moretophn"} title="Top HN" />
     </div>
   );
 }
