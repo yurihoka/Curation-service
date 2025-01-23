@@ -19,13 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className}  antialiased`}>
+      <body className={`${inter.className} antialiased text-black`}>
         <Header />
-        <div className="mx-auto max-w-screen-xl border-x border-black text-black">
+        <div className="mx-auto max-w-screen-xl border-x border-black">
           <NavigationBar />
-          <div className="px-7">{children}</div>
-          <Footer />
+          <div className="px-7 pb-20">{children}</div>
         </div>
+        <Footer />
       </body>
     </html>
   );
