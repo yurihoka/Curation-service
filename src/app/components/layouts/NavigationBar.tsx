@@ -2,7 +2,7 @@ import search from "../../public/search.png";
 
 const NavigationBar = () => {
   return (
-    <div>
+    <div className="text-black">
       <nav className="bg-white border-gray-200">
         <div className="flex flex-wrap justify-between items-center p-6">
           <span className="self-center text-4xl font-semibold whitespace-nowrap text-black">
@@ -31,33 +31,24 @@ const NavigationBar = () => {
               <li>
                 <a
                   href="/"
-                  className="text-black hover:bg-black hover:text-white"
+                  className="hover:bg-black hover:text-white"
                   aria-current="page"
                 >
                   Top
                 </a>
               </li>
               <li>
-                <a
-                  href="/ask"
-                  className="text-black hover:bg-black hover:text-white"
-                >
+                <a href="/ask" className="hover:bg-black hover:text-white">
                   Ask
                 </a>
               </li>
               <li>
-                <a
-                  href="/show"
-                  className="text-black hover:bg-black hover:text-white"
-                >
+                <a href="/show" className="hover:bg-black hover:text-white">
                   Show
                 </a>
               </li>
               <li>
-                <a
-                  href="/jobs"
-                  className="text-black hover:bg-black hover:text-white"
-                >
+                <a href="/jobs" className="hover:bg-black hover:text-white">
                   Jobs
                 </a>
               </li>
