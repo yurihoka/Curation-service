@@ -132,7 +132,11 @@ export default function FetchData({
                 {stories.map((story) => (
                   <div
                     key={story.id}
-                    className="flex-grow basis-[calc(25%-1rem)] pb-4 mb-4 border-b border-dotted border-black"
+                    className={`flex-grow basis-[calc(25%-1rem)] pb-4 mb-4 ${
+                      stories.length === 1
+                        ? "border-b border-black"
+                        : "border-b border-dotted border-black"
+                    }`}
                   >
                     <p className="text-sm">{story.type}</p>
                     <p className="text-md font-semibold">{story.title}</p>
