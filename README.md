@@ -21,10 +21,10 @@ npm run dev
 3. 課題の取り組み開始から完了までに要した合計時間
 
 4. 苦戦した箇所とその解決方法 (例 : 参考にしたサイト、書籍など)
-- Topページ上部のデザイン（公式サイト）
-- 時間の変更
+- Topページ上部のデザイン再現（公式サイト）
+- 時間差のhour, minutes表示
 （https://dev.to/ala_garbaa/format-time-ago-function-time-differences-in-typescript-5ag2
 https://b-moon.net/show-limited-days/）
 
-5. 本システムの改善点や機能拡張できそうな点
-- 
+1. 本システムの改善点や機能拡張できそうな点
+- ソート機能の追加（カテゴリー別で新着順、など）
