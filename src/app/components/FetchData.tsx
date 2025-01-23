@@ -16,7 +16,7 @@ type StoriesDataProps = {
 
 type FetchDataProps = {
   path: string;
-  title: string;
+  title?: string;
   startIndex: number;
   endIndex: number;
   category?: string;
@@ -88,7 +88,7 @@ export default function FetchData({
           {category === "The Latest" ? (
             // titleが "The Latest" の場合
             <div>
-              <h1 className="text-black font-bold border-y border-black py-2">
+              <h1 className="font-bold border-y border-black py-2 text-xl">
                 {title}
               </h1>
               <div className="flex flex-col">
@@ -109,7 +109,6 @@ export default function FetchData({
           ) : category === "best" ? (
             // titleが "best" の場合
             <div>
-              <h1 className="text-black font-bold my-4">{title}</h1>
               <div className="flex flex-wrap gap-4">
                 {stories.map((story) => (
                   <div
@@ -128,7 +127,7 @@ export default function FetchData({
           ) : (
             // titleが "The Latest" でも "best" でもない場合
             <div>
-              <h1 className="text-black font-bold my-4">{title}</h1>
+              <h1 className="font-bold my-4 text-4xl">{title}</h1>
               <div className="flex flex-wrap gap-4">
                 {stories.map((story) => (
                   <div

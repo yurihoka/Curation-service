@@ -9,7 +9,6 @@ export default function TopNews() {
       <div className="w-full text-4xl">
         <FetchData
           path="topstories.json?print=pretty"
-          title=""
           startIndex={0}
           endIndex={1}
         />
@@ -18,7 +17,6 @@ export default function TopNews() {
         <div className="w-5/6">
           <FetchData
             path="beststories.json?print=pretty"
-            title=""
             startIndex={1}
             endIndex={19}
             category="best"
