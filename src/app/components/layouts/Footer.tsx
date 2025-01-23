@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6">
+    <footer className=" bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-black shadow md:flex md:items-center md:justify-between md:p-6">
       <div className="flex flex-col">
         <ul className="flex flex-wrap items-left mt-3 text-sm font-medium text-gray-500">
           <li>
