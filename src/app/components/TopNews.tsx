@@ -6,7 +6,7 @@ import NewsListNavigationLink from "./layouts/NewsListNavigationLink";
 export default function TopNews() {
   return (
     <div>
-      <div className="w-full text-4xl">
+      <div className="w-full text-4xl mb-4">
         <FetchData
           path="topstories.json?print=pretty"
           startIndex={0}
