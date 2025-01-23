@@ -13,8 +13,8 @@ export default function TopNews() {
           endIndex={1}
         />
       </div>
-      <div className="flex justify-between">
-        <div className="w-5/6">
+      <div className="md:flex justify-between">
+        <div className="md:w-5/6">
           <FetchData
             path="beststories.json?print=pretty"
             startIndex={1}
@@ -26,7 +26,7 @@ export default function TopNews() {
             title="Top HN"
           />
         </div>
-        <div className="pl-10 pt-5">
+        <div className="md:pl-10 pt-5">
           <FetchData
             path="newstories.json?print=pretty"
             title="The Latest"

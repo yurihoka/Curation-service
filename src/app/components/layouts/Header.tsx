@@ -4,30 +4,32 @@ import clock from "../../public/clock.png";
 const Header = () => {
   return (
     <div>
-      <header className="shadow-md font-sans tracking-wide relative z-50">
-        <div className="py-2 bg-black text-white text-left px-10">
-          <p className="text-sm">
-            <strong className="mx-3">
+      <header className="shadow-md tracking-wide relative z-50">
+        <div className="md:flex md:items-center md:justify-start gap-4 py-2 bg-black text-white text-lef md:px-10 text-xs md:text-sm text-center">
+          <div>
+            <strong className="md:mx-3">
               Frontend Coding Challenge by bajji, Inc.
             </strong>
+          </div>
+          <div>
             |
             <img
-              width="16"
-              height="16"
+              width="15"
+              height="15"
               src={personMale.src}
               alt="person-male"
               className="display: inline"
             />
-            <strong className="mx-3">Yurika Hokama</strong>
+            <strong className="md:mx-3">Yurika Hokama</strong>
             |
             <img
-              width="16"
-              height="16"
+              width="15"
+              height="15"
               src={clock.src}
               alt="clock"
               className="display: inline"
             />
-          </p>
+          </div>
         </div>
       </header>
     </div>
