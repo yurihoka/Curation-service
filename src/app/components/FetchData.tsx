@@ -99,11 +99,14 @@ export default function FetchData({
                     key={story.id}
                     className="border-b border-dotted border-black py-4"
                   >
-                    <p className="text-sm">{story.type}</p>
-                    <p className="text-md font-semibold">{story.title}</p>
-                    <p className="text-sm text-gray-400">
-                      by {story.by} {formatTimeAgo(story.time)}
-                    </p>
+                    <div className="flex flex-col h-full">
+                      <p className="text-sm">{story.type}</p>
+                      <p className="text-md font-semibold">{story.title}</p>
+                      <div className="flex-grow" />
+                      <p className="text-sm text-gray-400">
+                        by {story.by} {formatTimeAgo(story.time)}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -117,11 +120,14 @@ export default function FetchData({
                     key={story.id}
                     className="flex-grow basis-[calc(50%-1rem)] md:basis-[calc(33.333%-1rem)] pb-4 border-b border-dotted border-black"
                   >
-                    <p className="text-sm">{story.type}</p>
-                    <p className="text-md font-semibold">{story.title}</p>
-                    <p className="text-sm text-gray-400">
-                      by {story.by} {formatTimeAgo(story.time)}
-                    </p>
+                    <div className="flex flex-col h-full">
+                      <p className="text-sm">{story.type}</p>
+                      <p className="text-md font-semibold">{story.title}</p>
+                      <div className="flex-grow" />
+                      <p className="text-sm text-gray-400">
+                        by {story.by} {formatTimeAgo(story.time)}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -140,11 +146,14 @@ export default function FetchData({
                         : "border-b border-dotted border-black"
                     }`}
                   >
-                    <p className="text-sm">{story.type}</p>
-                    <p className="text-md font-semibold">{story.title}</p>
-                    <p className="text-sm text-gray-400">
-                      by {story.by} {formatTimeAgo(story.time)}
-                    </p>
+                    <div className="flex flex-col h-full">
+                      <p className="text-sm">{story.type}</p>
+                      <p className="text-md font-semibold">{story.title}</p>
+                      <div className="flex-grow" />
+                      <p className="text-sm text-gray-400">
+                        by {story.by} {formatTimeAgo(story.time)}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
