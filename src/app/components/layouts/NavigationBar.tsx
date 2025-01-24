@@ -24,30 +24,39 @@ const NavigationBar = () => {
           </div>
         </div>
       </nav>
-      <nav className="border-t border-b border-black">
-        <div className="px-4 py-3">
-          <ul className="flex flex-row font-medium space-x-8 text-sm ml-5 md:ml-0">
+      <nav>
+        <div className="py-3 border-t border-b border-black">
+          <ul className="flex flex-row font-medium text-sm ml-5 md:ml-0">
             <li>
               <a
                 href="/"
-                className="hover:bg-black hover:text-white"
+                className="hover:bg-black hover:text-white px-4 py-3 cursor: pointer;"
                 aria-current="page"
               >
                 Top
               </a>
             </li>
             <li>
-              <a href="/ask" className="hover:bg-black hover:text-white">
+              <a
+                href="/ask"
+                className="hover:bg-black hover:text-white px-4 py-3 cursor: pointer;"
+              >
                 Ask
               </a>
             </li>
             <li>
-              <a href="/show" className="hover:bg-black hover:text-white">
+              <a
+                href="/show"
+                className="hover:bg-black hover:text-white px-4 py-3 cursor: pointer;"
+              >
                 Show
               </a>
             </li>
             <li>
-              <a href="/jobs" className="hover:bg-black hover:text-white">
+              <a
+                href="/jobs"
+                className="hover:bg-black hover:text-white px-4 py-3 cursor: pointer;"
+              >
                 Jobs
               </a>
             </li>
