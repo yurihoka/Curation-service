@@ -7,10 +7,10 @@ export default function NavigationBar() {
   const currentLocation = usePathname();
 
   return (
-    <div className="text-black">
+    <div className="pt-10 md:pt-7">
       <nav className="bg-white border-gray-200">
         <div className="flex items-center justify-between p-4 space-x-4">
-          <span className="text-2xl font-bold text-black whitespace-nowrap">
+          <span className="text-2xl font-bold  whitespace-nowrap">
             Hacker News
           </span>
           <div className="flex items-center space-x-2">
