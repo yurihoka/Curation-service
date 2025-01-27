@@ -25,6 +25,7 @@ npm run dev
 - 時間差のhour, minutes表示
 （https://dev.to/ala_garbaa/format-time-ago-function-time-differences-in-typescript-5ag2
 https://b-moon.net/show-limited-days/）
+- 各URLからID一覧を取得し、その詳細データを取得すること（https://qiita.com/gp333/items/42a60208e5cd31e74d1c）
 
 1. 本システムの改善点や機能拡張できそうな点
 - ソート機能の追加（カテゴリー別で新着順、など）
