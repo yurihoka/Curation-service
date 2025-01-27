@@ -18,7 +18,7 @@ export default function Header() {
               alt="person-male"
               className="inline"
             />
-            <strong className="md:mx-3">Yurika Hokama</strong>
+            <strong className="md:mx-3 text-orange-300">Yurika Hokama</strong>
             <span className="mx-2">|</span>
             <img
               width="15"
@@ -27,6 +27,7 @@ export default function Header() {
               alt="clock"
               className="inline"
             />
+            <strong className="md:mx-3">30h</strong>
           </div>
         </div>
       </div>
