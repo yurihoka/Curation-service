@@ -1,11 +1,16 @@
-import search from "../../public/search.png";
+"use client";
 
-const NavigationBar = () => {
+import search from "../../public/search.png";
+import { usePathname } from "next/navigation";
+
+export default function NavigationBar() {
+  const currentLocation = usePathname();
+
   return (
-    <div className="text-black">
+    <div className="pt-10 md:pt-7">
       <nav className="bg-white border-gray-200">
         <div className="flex items-center justify-between p-4 space-x-4">
-          <span className="text-2xl font-bold text-black whitespace-nowrap">
+          <span className="text-2xl font-bold  whitespace-nowrap">
             Hacker News
           </span>
           <div className="flex items-center space-x-2">
@@ -24,30 +29,54 @@ const NavigationBar = () => {
           </div>
         </div>
       </nav>
-      <nav className="border-t border-b border-black">
-        <div className="px-4 py-3">
-          <ul className="flex flex-row font-medium space-x-8 text-sm ml-5 md:ml-0">
+      <nav>
+        <div className="py-3 border-t border-b border-black">
+          <ul className="flex flex-row font-medium text-sm ml-5 md:ml-0">
             <li>
               <a
                 href="/"
-                className="hover:bg-black hover:text-white"
-                aria-current="page"
+                className={`px-4 py-3 cursor-pointer ${
+                  currentLocation === "/"
+                    ? "bg-black text-white"
+                    : "hover:bg-gray-200 hover:text-black"
+                }`}
               >
                 Top
               </a>
             </li>
             <li>
-              <a href="/ask" className="hover:bg-black hover:text-white">
+              <a
+                href="/ask"
+                className={`px-4 py-3 cursor-pointer ${
+                  currentLocation === "/ask"
+                    ? "bg-black text-white"
+                    : "hover:bg-gray-200 hover:text-black"
+                }`}
+              >
                 Ask
               </a>
             </li>
             <li>
-              <a href="/show" className="hover:bg-black hover:text-white">
+              <a
+                href="/show"
+                className={`px-4 py-3 cursor-pointer ${
+                  currentLocation === "/show"
+                    ? "bg-black text-white"
+                    : "hover:bg-gray-200 hover:text-black"
+                }`}
+              >
                 Show
               </a>
             </li>
             <li>
-              <a href="/jobs" className="hover:bg-black hover:text-white">
+              <a
+                href="/jobs"
+                className={`px-4 py-3 cursor-pointer ${
+                  currentLocation === "/jobs"
+                    ? "bg-black text-white"
+                    : "hover:bg-gray-200 hover:text-black"
+                }`}
+              >
                 Jobs
               </a>
             </li>
@@ -56,6 +85,4 @@ const NavigationBar = () => {
       </nav>
     </div>
   );
-};
-
-export default NavigationBar;
+}

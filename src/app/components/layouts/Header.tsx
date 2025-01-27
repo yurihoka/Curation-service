@@ -3,7 +3,7 @@ import clock from "../../public/clock.png";
 
 export default function Header() {
   return (
-    <header className="shadow-md tracking-wide relative z-50">
+    <header className="shadow-md tracking-wide fixed top-0 left-0 w-full z-50">
       <div className="bg-black text-white text-xs md:text-sm">
         <div className="mx-auto max-w-screen-xl py-2 flex flex-col md:flex-row items-center justify-left">
           <div>
