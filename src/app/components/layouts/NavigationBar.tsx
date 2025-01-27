@@ -1,6 +1,6 @@
 import search from "../../public/search.png";
 
-const NavigationBar = () => {
+export default function NavigationBar() {
   return (
     <div className="text-black">
       <nav className="bg-white border-gray-200">
@@ -30,7 +30,7 @@ const NavigationBar = () => {
             <li>
               <a
                 href="/"
-                className="hover:bg-black hover:text-white px-4 py-3 cursor: pointer;"
+                className="hover:bg-gray-200 hover:text-black px-4 py-3 cursor: pointer;"
                 aria-current="page"
               >
                 Top
@@ -39,7 +39,7 @@ const NavigationBar = () => {
             <li>
               <a
                 href="/ask"
-                className="hover:bg-black hover:text-white px-4 py-3 cursor: pointer;"
+                className="hover:bg-gray-200 hover:text-black px-4 py-3 cursor: pointer;"
               >
                 Ask
               </a>
@@ -47,7 +47,7 @@ const NavigationBar = () => {
             <li>
               <a
                 href="/show"
-                className="hover:bg-black hover:text-white px-4 py-3 cursor: pointer;"
+                className="hover:bg-gray-200 hover:text-black px-4 py-3 cursor: pointer;"
               >
                 Show
               </a>
@@ -55,7 +55,7 @@ const NavigationBar = () => {
             <li>
               <a
                 href="/jobs"
-                className="hover:bg-black hover:text-white px-4 py-3 cursor: pointer;"
+                className="hover:bg-gray-200 hover:text-black px-4 py-3 cursor: pointer;"
               >
                 Jobs
               </a>
@@ -65,6 +65,4 @@ const NavigationBar = () => {
       </nav>
     </div>
   );
-};
-
-export default NavigationBar;
+}
