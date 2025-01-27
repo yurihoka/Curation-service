@@ -1,6 +1,11 @@
+"use client";
+
 import search from "../../public/search.png";
+import { usePathname } from "next/navigation";
 
 export default function NavigationBar() {
+  const currentLocation = usePathname();
+
   return (
     <div className="text-black">
       <nav className="bg-white border-gray-200">
@@ -30,8 +35,11 @@ export default function NavigationBar() {
             <li>
               <a
                 href="/"
-                className="hover:bg-gray-200 hover:text-black px-4 py-3 cursor: pointer;"
-                aria-current="page"
+                className={`px-4 py-3 cursor-pointer ${
+                  currentLocation === "/"
+                    ? "bg-black text-white"
+                    : "hover:bg-gray-200 hover:text-black"
+                }`}
               >
                 Top
               </a>
@@ -39,7 +47,11 @@ export default function NavigationBar() {
             <li>
               <a
                 href="/ask"
-                className="hover:bg-gray-200 hover:text-black px-4 py-3 cursor: pointer;"
+                className={`px-4 py-3 cursor-pointer ${
+                  currentLocation === "/ask"
+                    ? "bg-black text-white"
+                    : "hover:bg-gray-200 hover:text-black"
+                }`}
               >
                 Ask
               </a>
@@ -47,7 +59,11 @@ export default function NavigationBar() {
             <li>
               <a
                 href="/show"
-                className="hover:bg-gray-200 hover:text-black px-4 py-3 cursor: pointer;"
+                className={`px-4 py-3 cursor-pointer ${
+                  currentLocation === "/show"
+                    ? "bg-black text-white"
+                    : "hover:bg-gray-200 hover:text-black"
+                }`}
               >
                 Show
               </a>
@@ -55,7 +71,11 @@ export default function NavigationBar() {
             <li>
               <a
                 href="/jobs"
-                className="hover:bg-gray-200 hover:text-black px-4 py-3 cursor: pointer;"
+                className={`px-4 py-3 cursor-pointer ${
+                  currentLocation === "/jobs"
+                    ? "bg-black text-white"
+                    : "hover:bg-gray-200 hover:text-black"
+                }`}
               >
                 Jobs
               </a>
